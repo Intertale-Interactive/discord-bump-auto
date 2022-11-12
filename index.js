@@ -31,5 +31,4 @@ client.on("interactionCreate", interaction => {
     }
 })
 
-client.login("MTA0MDk0Nzg0OTE0NTM2NDUxMQ.GQqT4J.ubp23iNKr6EzqBvqI4mX2k_mNAoFdEBwofMogo");
 client.login(process.env.TOKEN);
