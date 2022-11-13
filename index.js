@@ -1,34 +1,12 @@
-const {Client, GatewayIntentBits, Collection, SlashCommandBuilder} = require("discord.js");
-const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.DirectMessages
-    ]
-});
+const { Client, GatewayIntentBits, DiscordAPIError } = require('discord.js');
+const Discord = require('discord.js');
 
-const data = new SlashCommandBuilder()
-    .setName("ping")
-    .setDescription("Renvoie pong")
-    .setName("hi")
-    .setDescription("Renvoie bonjour")
+const client = new Client({ intents:[GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions] });
+const loadCommands = require("./Loader/loadCommands.js");
+const loadEvents = require("./Loader/loadEvents.js");
 
-client.on("ready", () => {
-    //client.application.commands.create(data);
-    client.guilds.cache.get("796382215570587705").commands.create(data)
+client.commands = new Discord.Collection()
 
-    console.log("Bot operationnel !");
-}); 
-
-client.on("interactionCreate", interaction => {
-    if(interaction.isCommand()){
-        if (interaction.commandName === "ping"){
-            interaction.reply("Pong")
-        } 
-        if (interaction.commandName === "hi"){
-            interaction.reply("Salut !")
-        } 
-    }
-})
-
-client.login(process.env.TOKEN);
+client.login("")
+loadCommands(client)
+loadEvents(client)

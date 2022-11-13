@@ -1,8 +1,20 @@
 {
+  "name": "bump-auto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "discord.js": "^14.6.0"
+    "@discordjs/rest": "^1.3.0",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.17",
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security"
   },
   "scripts": {
-    "start": "index index.js"
-  }
+    "test": "node ."
+  },
+  "keywords": [],
+  "author": "Elouen Verachten",
+  "license": "ISC"
 }
