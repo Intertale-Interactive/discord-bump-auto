@@ -1,1 +1,1 @@
-# Auto Bump Discord Bot
+# Noka Reminder Bot
